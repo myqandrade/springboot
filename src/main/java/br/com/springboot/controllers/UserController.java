@@ -1,6 +1,7 @@
 package br.com.springboot.controllers;
 
 import br.com.springboot.model.User;
+import br.com.springboot.model.UserDto;
 import br.com.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User user){
-        return ResponseEntity.ok(userService.createUser(user));
+    public ResponseEntity<User> create(@RequestBody UserDto userDto){
+        return ResponseEntity.ok(userService.createUser(userDto));
     }
 }
