@@ -4,15 +4,16 @@ import br.com.springboot.model.User;
 import br.com.springboot.model.UserDto;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
-    List<User> findAllUsers();
+    List<User> findAll();
 
-    User findUserById(Long id);
+    Optional<User> findById(Long id);
 
-    User createUser(UserDto userDto);
+    User create(UserDto userDto);
 
-    void deleteUser(Long id);
+    void delete(Long id);
 
 }

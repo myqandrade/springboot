@@ -5,9 +5,11 @@ import br.com.springboot.model.UserDto;
 import br.com.springboot.repositories.UserRepository;
 import br.com.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -33,23 +35,23 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public List<User> findAllUsers() {
+    public List<User> findAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public User findUserById(Long id) {
-        return null;
+    public Optional<User> findById(Long id){
+        return userRepository.findById(id);
     }
 
     @Override
-    public User createUser(UserDto userDto) {
+    public User create(UserDto userDto) {
         User user = userDtoToUser(userDto);
         return userRepository.save(user);
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public void delete(Long id) {
 
     }
 }
